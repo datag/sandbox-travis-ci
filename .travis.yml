@@ -1,8 +1,10 @@
 language: c
 
-env: CC=i586-mingw32msvc-gcc WINDRES=i586-mingw32msvc-windres STRIP=i586-mingw32msvc-strip
+env: CC=i586-mingw32msvc-gcc WINDRES=i586-mingw32msvc-windres STRIP=i586-mingw32msvc-strip OBJDUMP=i586-mingw32msvc-objdump
 
 compiler: _dummy
 
-script: make
+script: make && make strip
+
+after_script: $OBJDUMP -s bin/Test.exe
 
