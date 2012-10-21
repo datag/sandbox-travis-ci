@@ -2,11 +2,11 @@ language: c
 
 env: CROSS_COMPILE=i586-mingw32msvc-
 
-# do not specify compiler here and do not export $CC
-compiler:
+# specify MinGW-gcc; however, unset $CC later
+compiler: i586-mingw32msvc-gcc
 
-# override setup: do nothing
-setup:
+# do not use the exported $CC variable
+before_script: "unset CC"
 
 script: "make CC=${CROSS_COMPILE}gcc WINDRES=${CROSS_COMPILE}windres"
 
