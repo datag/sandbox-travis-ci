@@ -1,11 +1,8 @@
-# fake language so we can use the CC env variable
-language: erlang
+language: c
 
 env: CC=i586-mingw32msvc-gcc WINDRES=i586-mingw32msvc-windres STRIP=i586-mingw32msvc-strip
 
-script: make
-install: /bin/true
+compiler: _dummy
 
-notifications:
-    email: true
+script: make
 
