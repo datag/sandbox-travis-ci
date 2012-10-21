@@ -1,4 +1,5 @@
-language: c
+# fake language so we can use the CC env variable
+language: erlang
 
 env: CC=i586-mingw32msvc-gcc WINDRES=i586-mingw32msvc-windres STRIP=i586-mingw32msvc-strip
 
