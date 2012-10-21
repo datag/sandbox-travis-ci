@@ -1,9 +1,9 @@
 # Makefile
 # mingw32-make
 
-CC=gcc
-WINDRES=windres
-STRIP=strip
+CC ?= gcc
+WINDRES ?= windres
+STRIP ?= strip
 
 SRCDIR=src
 RESDIR=res
