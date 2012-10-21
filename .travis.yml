@@ -1,12 +1,16 @@
 language: c
 
-env: WINDRES=i586-mingw32msvc-windres STRIP=i586-mingw32msvc-strip OBJDUMP=i586-mingw32msvc-objdump
+env: CROSS_COMPILE=i586-mingw32msvc-
 
-compiler: i586-mingw32msvc-gcc
+# do not specify compiler here and do not export $CC
+compiler:
 
-script: make
+# override setup: do nothing
+setup:
+
+script: "make CC=${CROSS_COMPILE}gcc WINDRES=${CROSS_COMPILE}windres"
 
 after_script:
-    - $OBJDUMP -p bin/Test.exe
-    - make strip
+    - "${CROSS_COMPILE}objdump -p bin/Test.exe"
+    - "make STRIP=${CROSS_COMPILE}strip strip"
 
