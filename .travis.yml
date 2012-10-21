@@ -1,16 +1,19 @@
 language: c
 
-env: CROSS_COMPILE=i586-mingw32msvc-
+env: PATH="/usr/i586-mingw32msvc/bin:$PATH"
 
 # specify MinGW-gcc; however, unset $CC later
-compiler: i586-mingw32msvc-gcc
+compiler: gcc
 
 # do not use the exported $CC variable
-before_script: "unset CC"
+before_script:
+    - "echo path: $PATH"
+    - "ls -l /usr/i586-mingw32msvc/bin"
+    - "unset CC"
 
-script: "make CC=${CROSS_COMPILE}gcc WINDRES=${CROSS_COMPILE}windres"
+script: "make"
 
 after_script:
-    - "${CROSS_COMPILE}objdump -p bin/Test.exe"
-    - "make STRIP=${CROSS_COMPILE}strip strip"
+    - "objdump -p bin/Test.exe"
+    - "make strip"
 
