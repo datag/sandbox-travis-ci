@@ -1,3 +1,3 @@
-= Playground for Travis CI tests
+# Playground for Travis CI tests
 
 Nothing to see here...
