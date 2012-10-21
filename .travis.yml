@@ -9,6 +9,7 @@ compiler: i586-mingw32msvc-gcc
 # do not use the exported $CC variable
 before_script:
     - "sudo ln -s /usr/bin/${CROSS}-gcc /usr/${CROSS}/bin/gcc"
+    - "sudo ln -s /usr/bin/${CROSS}-windres /usr/${CROSS}/bin/windres"
     - "export PATH=/usr/${CROSS}/bin:$PATH"
     - "unset CC"
 
