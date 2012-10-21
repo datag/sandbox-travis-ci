@@ -3,12 +3,12 @@ language: c
 env: CROSS="i586-mingw32msvc"
 
 # specify MinGW-gcc; however, set $PATH / unset $CC later
-compiler: gcc
+compiler: i586-mingw32msvc-gcc
 
 # mingw-gcc no symlink: https://bugs.launchpad.net/ubuntu/+source/gcc-mingw32/+bug/992161
 # do not use the exported $CC variable
 before_script:
-    - "ln -s /usr/bin/${CROSS}-gcc /usr/${CROSS}/bin/gcc"
+    - "sudo ln -s /usr/bin/${CROSS}-gcc /usr/${CROSS}/bin/gcc"
     - "export PATH=/usr/${CROSS}/bin:$PATH"
     - "unset CC"
 
