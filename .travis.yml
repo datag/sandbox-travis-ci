@@ -1,8 +1,8 @@
 language: c
 
-env: CC=i586-mingw32msvc-gcc WINDRES=i586-mingw32msvc-windres STRIP=i586-mingw32msvc-strip OBJDUMP=i586-mingw32msvc-objdump
+env: WINDRES=i586-mingw32msvc-windres STRIP=i586-mingw32msvc-strip OBJDUMP=i586-mingw32msvc-objdump
 
-compiler: _dummy
+compiler: i586-mingw32msvc-gcc
 
 script: make && make strip
 
