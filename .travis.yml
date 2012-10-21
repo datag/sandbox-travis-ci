@@ -4,7 +4,9 @@ env: WINDRES=i586-mingw32msvc-windres STRIP=i586-mingw32msvc-strip OBJDUMP=i586-
 
 compiler: i586-mingw32msvc-gcc
 
-script: make && make strip
+script: make
 
-after_script: $OBJDUMP -s bin/Test.exe
+after_script:
+    - $OBJDUMP -p bin/Test.exe
+    - make strip
 
